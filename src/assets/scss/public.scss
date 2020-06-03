@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body,html,#app{
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+a,a:hover,
+a:active,a:visited,
+a:link,a:focus {
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+img {
+  vertical-align: top;
+}
+
+em,i,span {
+  font-style: normal;
+}
+div,section,span,ul {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+input,button {
+  border: none;
+  outline: none;
+  background: #fff;
+}
