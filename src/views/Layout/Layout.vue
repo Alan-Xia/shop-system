@@ -12,6 +12,7 @@
       <el-container>
         <!-- 侧边栏 -->
         <el-aside :width="isCollapse ? '64px' : '200px'">
+          <div class="toggle-button" @click="toggleCollapse">|||</div>
           <el-menu
           background-color="#333744"
           text-color="#fff"
@@ -36,6 +37,7 @@
             </el-submenu>
           </el-menu>
         </el-aside>
+        <!-- 右侧内容主体-->
         <el-main>
           <!-- 路由占位符 -->
           <router-view></router-view>
@@ -80,6 +82,9 @@ export default {
     saveNavState (activePath) {
       window.sessionStorage.setItem('activePath',activePath)
       this.activePath = activePath
+    },
+    toggleCollapse () {
+      this.isCollapse = !this.isCollapse
     }
   },
   created () {
@@ -121,5 +126,14 @@ export default {
 }
 .el-submenu__title i {
   margin-right: 10px;
+}
+.toggle-button {
+  background-color: #4a5064;
+  font-size: 10px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }
 </style>
