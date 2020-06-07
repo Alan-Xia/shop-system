@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store'
 Vue.use(VueRouter);
 
 const routes = [
@@ -15,9 +14,13 @@ const routes = [
   },
   {
     path: '/home',
-    redirect: '/users',
+    redirect: '/welcome',
     component: () => import('../views/Layout/Layout.vue'),
     children: [
+      {
+        path: '/welcome',
+        component: () => import('../views/Welcome/index.vue')
+      },
       {
         path: '/users',
         name:'user',
@@ -44,7 +47,7 @@ const routes = [
         component: () => import('../views/Shop/Goods.vue')
       },
       {
-        path: '/parmas',
+        path: '/params',
         name:'parmas',
         component: () => import('../views/Shop/Params.vue')
       },
@@ -69,18 +72,10 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next) => {
-  if (!store.getters.token) {
-    if (to.path == '/login') {
-      next()
-    } else {
-      next({
-        path: '/login',
-        query: {redirect: to.path}
-      })
-    }
-  } else {
-    next()
-  }
+  if (to.path === '/login') return next()
+  const tokenStr = window.sessionStorage.getItem('access_token')
+  if (!tokenStr) return next('/login')
+  next()
 })
 
 export default router;

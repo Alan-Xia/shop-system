@@ -55,8 +55,7 @@ export default {
           this.$message.success('登录成功')
           sessionStorage.setItem('access_token',res.data.token)
           this.$store.commit('TOKEN',res.data.token)
-          const redirect = this.$route.query.redirect || '/'
-          this.$router.push(redirect)
+          this.$router.push('/')
         } else {
           console.log('error submit!!')
           return false
