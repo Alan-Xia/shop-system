@@ -2,11 +2,17 @@
   <div class="layout">
     <el-container class="container">
       <el-header>
-        <div>
+        <div class="name">
           <img :src="$img('heima.png')" alt="">
           <span>电商后台管理系统</span>
         </div>
-        <el-button type="info" @click="logout">退出</el-button>
+        <div class="intro">
+          <div class="username">
+            <span class="iconfont icon-renxiang"></span>
+            <span>{{uinfo.username}}</span>
+          </div>
+          <el-button type="info" @click="logout">退出</el-button>
+        </div>
       </el-header>
       <!-- 页面主体区域 -->
       <el-container>
@@ -48,6 +54,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -90,6 +97,9 @@ export default {
   created () {
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem('activePath')
+  },
+  computed: {
+    ...mapGetters(['uinfo'])
   }
 }
 </script>
@@ -110,11 +120,37 @@ export default {
   align-items: center;
   color: #fff;
   font-size: 20px;
-  > div {
+  .name {
     display: flex;
     align-items: center;
     span {
       margin-left: 15px;
+    }
+  }
+  .intro{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .username{
+      margin-right: 15px;
+      background-color: #ecf5ff;
+      border-color: #d9ecff;
+      display: inline-block;
+      height: 32px;
+      padding: 0 10px;
+      line-height: 30px;
+      font-size: 12px;
+      color: #409EFF;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      box-sizing: border-box;
+      white-space: nowrap;
+      span{
+        &:first-child{
+          padding-right: 5px;
+        }
+      }
     }
   }
 }

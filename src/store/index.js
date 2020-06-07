@@ -5,11 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('access_token') || ''
+    token: sessionStorage.getItem('access_token') || '',
+    uinfo: JSON.parse(sessionStorage.getItem('uinfo')) || ''
   },
   mutations: {
     TOKEN (state,token) {
       state.token = token
+    },
+    UINFO (state,uinfo) {
+      state.uinfo = uinfo
     }
   },
   actions: {
@@ -18,6 +22,7 @@ export default new Vuex.Store({
   modules: {
   },
   getters: {
-    token: state => state.token
+    token: state => state.token,
+    uinfo: state => state.uinfo
   }
 })

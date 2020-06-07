@@ -8,10 +8,14 @@ import base from './plugins/base'
 import './assets/scss/public.scss'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
+import TreeTable from 'vue-table-with-tree-grid'
 
 require('./tool/filter')
 Vue.mixin(base)
 Vue.use(ElementUI)
+
+Vue.component('tree-table', TreeTable)
+
 const routepush = Router.prototype.push
 Router.prototype.push = function push (location) {
   return routepush.call(this,location).catch(error => error)
