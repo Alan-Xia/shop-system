@@ -22,7 +22,7 @@
 
       <!-- table表格区域 -->
       <el-table :data="goodslist" border stripe>
-        <el-table-column type="index"></el-table-column>
+        <el-table-column type="index" label="序号"></el-table-column>
         <el-table-column label="商品名称" prop="goods_name"></el-table-column>
         <el-table-column label="商品价格(元)" prop="goods_price" width="95px"></el-table-column>
         <el-table-column label="商品重量" prop="goods_weight" width="70px"></el-table-column>
