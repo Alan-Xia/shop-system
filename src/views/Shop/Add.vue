@@ -132,10 +132,10 @@ export default {
       // 静态属性列表数据
       onlyTableData: [],
       // 上传图片的URL地址
-      uploadURL: 'http://timemeetyou.com:8889/api/private/v1/upload',
+      uploadURL: 'https://www.liulongbin.top:8888/api/private/v1/upload',
       // 图片上传组件的headers请求头对象
       headerObj: {
-        Authorization: window.sessionStorage.getItem('token')
+        Authorization: window.sessionStorage.getItem('access_token')
       },
       previewPath: '',
       previewVisible: false

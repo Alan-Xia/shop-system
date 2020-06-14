@@ -316,7 +316,7 @@ export default {
       this.getParamsData()
     },
     // 文本框失去焦点，或摁下了 Enter 都会触发
-    async handleInputConfirm(row) {
+    handleInputConfirm(row) {
       if (row.inputValue.trim().length === 0) {
         row.inputValue = ''
         row.inputVisible = false
