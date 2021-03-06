@@ -3,7 +3,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 const serive = axios.create({
-  baseURL: 'https://www.liulongbin.top:8888/api/private/v1/',
+  baseURL: process.env.VUE_APP_BASE_API,
   timeout: 3000
 })
 // 在 request 拦截器中，展示进度条 NProgress.start()
